@@ -16,7 +16,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/react-custom-projects/floating-button-npm-package.git"
+    "url": "https://github.com/DonAdam2/react-rollup-npm-boilerplate.git"
   },
   "keywords": [
     "react",
@@ -25,10 +25,10 @@
   "author": "Adam Morsi",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/react-custom-projects/floating-button-npm-package/issues"
+    "url": "https://github.com/DonAdam2/react-rollup-npm-boilerplate/issues"
   },
   "type": "module",
-  "homepage": "https://github.com/react-custom-projects/floating-button-npm-package#readme",
+  "homepage": "https://github.com/DonAdam2/react-rollup-npm-boilerplate#readme",
   "devDependencies": {
     "@babel/core": "^7.23.6",
     "@babel/preset-react": "^7.23.3",
