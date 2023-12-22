@@ -6,7 +6,7 @@ import {
   PropsWithChildren,
 } from 'react';
 //styles
-import './Styles.scss';
+import styles from './Styles.module.scss';
 
 export interface ButtonProps
   extends DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
@@ -28,7 +28,7 @@ export const Button: FC<PropsWithChildren<ButtonProps>> = ({
   if (color) _style.color = color;
 
   return (
-    <button className="button" style={_style} {...rest}>
+    <button className={styles.button} style={_style} {...rest}>
       {children}
     </button>
   );

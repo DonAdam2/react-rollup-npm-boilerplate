@@ -1,6 +1,7 @@
 # Table of Contents:
 - [Overview](#overview)
 - [Installing & getting started](#installing--getting-started)
+- [Publishing a package with GitHub actions](#publishing-a-package-with-github-actions)
 - [Configuring prettier](#configuring-prettier)
 - [Available scripts](#available-scripts)
 
@@ -29,6 +30,14 @@ This boilerplate allows you to create npm package fast and easy with the followi
 - src/stories:
   - Create a new story for your component in **stories** directory following the instructions on [storybook](https://storybook.js.org/) site.
 - run `pnpm storybook` to see your component during development
+- run `pnpm commit` to commit your files and update **CHANGELOG** file
+
+## Publishing a package with GitHub actions:
+
+- Open your repository on GitHub => settings => Secrets and variables => Actions => New repository secret:
+  - Name: **NPM_AUTH_TOKEN**
+  - Secret: paste your npm access token
+- push your changes to GitHub to run publish workflow
 
 ## Configuring Prettier:
 

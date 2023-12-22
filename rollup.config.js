@@ -6,6 +6,7 @@ import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import babel from '@rollup/plugin-babel';
 import terser from '@rollup/plugin-terser';
 import postcss from 'rollup-plugin-postcss';
+import autoprefixer from 'autoprefixer';
 
 const packageJson = require('./package.json');
 
@@ -31,15 +32,9 @@ export default [
     ],
     plugins: [
       clean('dist'),
-      postcss({
-        modules: true,
-        extract: 'styles.css',
-        minimize: true,
-        inject: false,
-        sourceMap: true,
-        extensions: ['.scss', '.css'],
-        use: ['sass'],
-      }),
+      peerDepsExternal(),
+      resolve(),
+      commonjs(),
       babel({
         babelHelpers: 'bundled',
         exclude: 'node_modules/**',
@@ -47,10 +42,20 @@ export default [
       typescript({
         tsconfig: './tsconfig.build.json',
       }),
-      peerDepsExternal(),
-      resolve(),
-      commonjs(),
       terser(),
+      postcss({
+        plugins: [autoprefixer],
+        modules: {
+          namedExport: true,
+        },
+        //uncomment the following 2 lines if you want to extract styles into a separated file
+        /*extract: 'styles.css',
+        inject: false,*/
+        minimize: true,
+        sourceMap: true,
+        extensions: ['.scss', '.css'],
+        use: ['sass'],
+      }),
     ],
   },
 ];
