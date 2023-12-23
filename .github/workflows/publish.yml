@@ -61,7 +61,6 @@ jobs:
 
       - name: publish
         run: |
-          pnpm semantic-release
           cp -r ../dist ./
           cp ../{package.json,CHANGELOG.md,LICENSE,README.md} ./
           npm publish --access public
