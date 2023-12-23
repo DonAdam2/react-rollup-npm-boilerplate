@@ -59,10 +59,9 @@ jobs:
 
       - name: publish
         run: |
-          pwd
-          cp -r ../dist ./dist
-          cp ../{package.json,CHANGELOG.md,LICENSE,README.md} ./
-          ls -l
+          mkdir dist
+          cp -r `ls -A | grep -v "dist"` dist -v
+          cp ../{package.json,CHANGELOG.md,LICENSE,README.md} ./        
           npm publish --access public
         working-directory: dist
         env:
