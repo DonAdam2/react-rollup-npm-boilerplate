@@ -54,6 +54,9 @@ jobs:
           npm install -g pnpm
           pnpm install --frozen-lockfile
 
+      - name: Build npm package
+        run: pnpm build-lib
+
       - name: publish
         run: npm publish --access public
         working-directory: dist
