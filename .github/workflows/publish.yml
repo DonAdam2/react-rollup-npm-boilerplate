@@ -59,6 +59,7 @@ jobs:
 
       - name: publish
         run: |
+          pwd
           cp package.json CHANGELOG.md LICENSE README.md /dist        
           npm publish --access public
         working-directory: dist
