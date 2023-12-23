@@ -1,6 +1,6 @@
 {
   "name": "react-rollup-npm-boilerplate",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "An example of creating a react npm package",
   "main": "dist/index.js",
   "module": "dist/index.es.js",

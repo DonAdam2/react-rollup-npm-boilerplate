@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.9](https://github.com/DonAdam2/react-rollup-npm-boilerplate/compare/v1.0.8...v1.0.9) (2023-12-23)
+
+
+### Bug Fixes
+
+* **publish.yml:** fix publish workflow ([63e56b3](https://github.com/DonAdam2/react-rollup-npm-boilerplate/commit/63e56b3626ac458a1d8398c90c5c61cd7d380409))
+
 ### [1.0.8](https://github.com/DonAdam2/react-rollup-npm-boilerplate/compare/v1.0.7...v1.0.8) (2023-12-23)
 
 
