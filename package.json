@@ -22,7 +22,8 @@
   },
   "scripts": {
     "storybook": "storybook dev -p 6006",
-    "commit": "git add . && cz && standard-version",
+    "commit": "git add . && cz",
+    "semantic-release": "standard-version",
     "build-storybook": "storybook build",
     "build-lib": "rollup -c --bundleConfigAsCjs",
     "test": "jest -c jest/jest.config.js --verbose",
