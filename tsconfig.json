@@ -20,6 +20,8 @@
     "isolatedModules": true,
     "jsx": "react-jsx",
     "baseUrl": "./",
-    "types": ["node"]
-  }
+    "types": ["node", "jest", "@testing-library/jest-dom"]
+  },
+  "exclude": ["node_modules", "dist", "src/**/*.stories.tsx", "src/**/*.test.tsx"],
+  "include": ["src"]
 }
