@@ -58,7 +58,9 @@ jobs:
         run: pnpm build-lib
 
       - name: publish
-        run: npm publish --access public
+        run: |
+          cp package.json CHANGELOG.md LICENSE README.md /dist        
+          npm publish --access public
         working-directory: dist
         env:
           NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
