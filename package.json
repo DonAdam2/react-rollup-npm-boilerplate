@@ -1,13 +1,23 @@
 {
   "name": "react-rollup-npm-boilerplate",
-  "version": "1.0.0",
+  "version": "1.1.1",
   "description": "An example of creating a react npm package",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "files": [
-    "dist"
+    "dist/",
+    "README.md",
+    "LICENSE"
   ],
   "types": "dist/index.d.ts",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.es.js",
+      "default": "./dist/index.js"
+    }
+  },
   "browserslist": {
     "production": [
       ">0.2%",
