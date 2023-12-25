@@ -56,8 +56,6 @@ jobs:
 
       - name: Build npm package
         run: |
-          pwd
-          ls -l
           pnpm build-lib
 
       - name: publish
