@@ -45,6 +45,8 @@ export default [
         plugins: [autoprefixer],
         modules: {
           namedExport: true,
+          //minify classnames
+          generateScopedName: '[hash:base64:8]',
         },
         //uncomment the following 2 lines if you want to extract styles into a separated file
         /*extract: 'styles.css',
