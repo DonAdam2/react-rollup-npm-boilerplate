@@ -59,6 +59,6 @@ jobs:
 
       - name: publish
         run: npm publish --access public
-        working-directory: packageToShip
+        working-directory: lib
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}

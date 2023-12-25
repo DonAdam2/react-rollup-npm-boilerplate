@@ -1,23 +1,13 @@
 {
   "name": "react-rollup-npm-boilerplate",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "An example of creating a react npm package",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "files": [
-    "dist/",
-    "README.md",
-    "LICENSE"
+    "dist"
   ],
   "types": "dist/index.d.ts",
-  "exports": {
-    "./package.json": "./package.json",
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.es.js",
-      "default": "./dist/index.js"
-    }
-  },
   "browserslist": {
     "production": [
       ">0.2%",
@@ -35,7 +25,7 @@
     "commit": "git add . && cz",
     "semantic-release": "standard-version",
     "build-storybook": "storybook build",
-    "build-lib": "rm -rf packageToShip && mkdir packageToShip && rollup -c --bundleConfigAsCjs && cp -r ./dist ./packageToShip && cp package.json CHANGELOG.md LICENSE README.md ./packageToShip",
+    "build-lib": "rm -rf lib && mkdir lib && rollup -c --bundleConfigAsCjs && cp -r ./dist ./lib && cp package.json CHANGELOG.md LICENSE README.md ./lib",
     "test": "jest -c jest/jest.config.js --verbose",
     "test:watch": "pnpm run test --watch",
     "test:clear": "pnpm run test --clearCache"

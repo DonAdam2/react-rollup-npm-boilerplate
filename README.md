@@ -76,9 +76,9 @@ This boilerplate allows you to create npm package fast and easy with the followi
   ```shell
   pnpm build-lib
   ```
-- Navigate to **packageToShip** directory:
+- Navigate to **lib** directory:
   ```shell
-  cd packageToShip
+  cd lib
   ```
 - Publish your npm package:
   ```shell
@@ -144,7 +144,7 @@ In the project directory, you can run:
   - CommonJS (CJS).
   - ECMAScript (ESM).
 - Output your package types into `dist/index.d.ts`
-- Creates a new directory called **packageToShip** and copies the following into it to make your package ready for publishing:
+- Creates a new directory called **lib** and copies the following into it to make your package ready for publishing:
   - dist folder
   - package.json
   - CHANGELOG.md
