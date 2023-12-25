@@ -14,6 +14,8 @@ This boilerplate allows you to create npm package fast and easy with the followi
 - Commitizen to simplify professional commit messages.
 - standard-version which will bump package version, create a new release tag with the new version and updates CHANGELOG file. 
 
+<p dir="rtl"><a href="#table-of-contents">Back to top</a></p>
+
 ## Installing / Getting Started:
 
 - Install packages `pnpm install`
@@ -32,6 +34,8 @@ This boilerplate allows you to create npm package fast and easy with the followi
   - Add component test in a file with this extension `ComponentName.test.tsx`.
 - run `pnpm storybook` to see your component during development.
 - run `pnpm commit` to commit your files following **conventional commit** standards.
+
+<p dir="rtl"><a href="#table-of-contents">Back to top</a></p>
 
 ## Publishing your package:
 
@@ -81,6 +85,8 @@ This boilerplate allows you to create npm package fast and easy with the followi
   npm publish --access public
   ```
 
+<p dir="rtl"><a href="#table-of-contents">Back to top</a></p>
+
 ## Configuring Prettier:
 
 This build relies on [Prettier formatter](https://prettier.io/) to enforce code style. And [ESLint](https://eslint.org/) for identifying problematic patterns found in the code.
@@ -106,6 +112,8 @@ This build relies on [Prettier formatter](https://prettier.io/) to enforce code 
       b- Search for `prettier` => add `.prettierrc` in **_Prettier: Config Path_** section && check **_Prettier: Require Config_**
 
   3- Please refer to other tutorials if you are using a different IDE.
+
+<p dir="rtl"><a href="#table-of-contents">Back to top</a></p>
 
 ## Available Scripts
 
@@ -155,3 +163,5 @@ In the project directory, you can run:
 ### `pnpm test:clear`
 
 - Clears test cache.
+
+<p dir="rtl"><a href="#table-of-contents">Back to top</a></p>
