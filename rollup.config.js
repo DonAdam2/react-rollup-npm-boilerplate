@@ -61,7 +61,7 @@ export default [
   },
   {
     input: 'dist/index.d.ts',
-    output: [{ file: 'dist/index.d.ts', format: 'es' }],
+    output: [{ file: `dist/${packageJson.name}.d.ts`, format: 'es' }],
     plugins: [dts()],
   },
 ];
