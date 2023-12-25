@@ -21,6 +21,9 @@ This boilerplate allows you to create npm package fast and easy with the followi
 - Install packages `pnpm install`
 - Package JSON:
   - name: add the name of your package.
+  - main: replace **react-rollup-npm-boilerplate** with the name of your package.
+  - module: replace **react-rollup-npm-boilerplate** with the name of your package.
+  - types: replace **react-rollup-npm-boilerplate** with the name of your package.
   - description: add the description of your package.
   - repository => url: add the URL of your package.
   - keywords: add keywords to represent your package (SEO).

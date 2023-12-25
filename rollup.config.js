@@ -7,6 +7,7 @@ import babel from '@rollup/plugin-babel';
 import terser from '@rollup/plugin-terser';
 import postcss from 'rollup-plugin-postcss';
 import autoprefixer from 'autoprefixer';
+import { dts } from 'rollup-plugin-dts';
 
 const packageJson = require('./package.json');
 
@@ -57,5 +58,10 @@ export default [
         use: ['sass'],
       }),
     ],
+  },
+  {
+    input: 'dist/index.d.ts',
+    output: [{ file: `dist/${packageJson.name}.d.ts`, format: 'es' }],
+    plugins: [dts()],
   },
 ];
