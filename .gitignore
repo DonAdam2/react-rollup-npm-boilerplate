@@ -1,6 +1,7 @@
 # dependencies
 /node_modules
 /dist
+/packageToShip
 /coverage
 .nyc_output
 

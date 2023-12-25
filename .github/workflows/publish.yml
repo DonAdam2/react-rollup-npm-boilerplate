@@ -55,15 +55,10 @@ jobs:
           pnpm install --frozen-lockfile
 
       - name: Build npm package
-        run: |
-          pnpm build-lib
-          mkdir packageToShip
+        run: pnpm build-lib
 
       - name: publish
-        run: |
-          cp -r ../dist ./
-          cp ../{package.json,CHANGELOG.md,LICENSE,README.md} ./
-          npm publish --access public
+        run: npm publish --access public
         working-directory: packageToShip
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}

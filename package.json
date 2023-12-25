@@ -25,7 +25,7 @@
     "commit": "git add . && cz",
     "semantic-release": "standard-version",
     "build-storybook": "storybook build",
-    "build-lib": "rollup -c --bundleConfigAsCjs",
+    "build-lib": "rollup -c --bundleConfigAsCjs && mkdir packageToShip && cp -r ./dist ./packageToShip && cp ./{package.json,CHANGELOG.md,LICENSE,README.md} ./packageToShip",
     "test": "jest -c jest/jest.config.js --verbose",
     "test:watch": "pnpm run test --watch",
     "test:clear": "pnpm run test --clearCache"
