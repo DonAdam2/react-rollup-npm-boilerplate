@@ -1,13 +1,13 @@
 {
   "name": "react-rollup-npm-boilerplat",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "An example of creating a react npm package",
-  "main": "dist/react-rollup-npm-boilerplat.cjs.js",
-  "module": "dist/react-rollup-npm-boilerplat.esm.js",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
   "files": [
     "dist"
   ],
-  "types": "dist/react-rollup-npm-boilerplat.d.ts",
+  "types": "dist/index.d.ts",
   "browserslist": {
     "production": [
       ">0.2%",
