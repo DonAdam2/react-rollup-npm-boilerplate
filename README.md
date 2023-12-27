@@ -147,7 +147,6 @@ In the project directory, you can run:
 - Creates a new directory called **lib** and copies the following into it to make your package ready for publishing:
   - dist folder
   - package.json
-  - CHANGELOG.md
   - LICENSE
   - README.md
 

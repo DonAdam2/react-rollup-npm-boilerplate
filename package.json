@@ -25,7 +25,7 @@
     "commit": "git add . && cz",
     "semantic-release": "standard-version",
     "build-storybook": "storybook build",
-    "build-lib": "rm -rf lib && mkdir lib && rollup -c --bundleConfigAsCjs && cp -r ./dist ./lib && cp package.json CHANGELOG.md LICENSE README.md ./lib",
+    "build-lib": "rm -rf lib && mkdir lib && rollup -c --bundleConfigAsCjs && cp -r ./dist ./lib && cp package.json LICENSE README.md ./lib",
     "test": "jest -c jest/jest.config.js --verbose",
     "test:watch": "pnpm run test --watch",
     "test:clear": "pnpm run test --clearCache"
