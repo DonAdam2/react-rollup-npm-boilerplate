@@ -2,6 +2,7 @@
 - [Overview](#overview)
 - [Installing & getting started](#installing--getting-started)
 - [Publishing your package](#publishing-your-package)
+- [Setup local NPM registry](#setup-local-npm-registry)
 - [Configuring prettier](#configuring-prettier)
 - [Available scripts](#available-scripts)
 
@@ -83,6 +84,33 @@ This boilerplate allows you to create npm package fast and easy with the followi
 - Publish your npm package:
   ```shell
   npm publish --access public
+  ```
+
+<p dir="rtl"><a href="#table-of-contents">Back to top</a></p>
+
+## Setup local NPM registry
+
+- I like to publish my package to a local registry and test it locally before publishing it to NPM.
+- We will use **verdaccio** registry:
+  - Pull verdaccio image:
+  ```shell
+  docker pull verdaccio/verdaccio
+  ```
+  - Run verdaccio container:
+  ```shell
+  docker run -it --rm --name verdaccio -p 4873:4873 verdaccio/verdaccio
+  ```
+  - Create a new user:
+  ```shell
+  npm adduser --registry http://localhost:4873/
+  ```
+  - Publish your package after building it:
+  ```shell
+  npm publish --registry http://localhost:4873/
+  ```
+  - Install your package from your local registry:
+  ```shell
+  npm install <package_name> --registry http://localhost:4873/
   ```
 
 <p dir="rtl"><a href="#table-of-contents">Back to top</a></p>
