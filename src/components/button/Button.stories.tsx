@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Button } from '../index';
-import { useState } from 'react';
+import { Button } from './Button';
 
 //👇 This default export determines where your story goes in the story list
 const meta: Meta<typeof Button> = {
@@ -10,17 +9,20 @@ const meta: Meta<typeof Button> = {
 export default meta;
 type Story = StoryObj<typeof Button>;
 
-export const FirstStory: Story = {
-  render: () => {
-    const [updated, setUpdated] = useState(false);
+export const GreenButton: Story = {
+  argTypes: { onClick: { action: 'Green button clicked' } },
+  args: {
+    children: 'Green Button',
+    backgroundColor: '#4caf50',
+    color: '#ffffff',
+  },
+};
 
-    return (
-      <>
-        <div>{updated ? 'updated' : 'not updated'}</div>
-        <Button onClick={() => setUpdated((prev) => !prev)} backgroundColor="green" color="white">
-          Test
-        </Button>
-      </>
-    );
+export const RedButton: Story = {
+  argTypes: { onClick: { action: 'Red button clicked' } },
+  args: {
+    children: 'Red Button',
+    backgroundColor: '#e95a4b',
+    color: '#ffffff',
   },
 };
