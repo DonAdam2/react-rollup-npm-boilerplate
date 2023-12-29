@@ -11,6 +11,9 @@ devDependencies:
   '@babel/preset-react':
     specifier: ^7.23.3
     version: 7.23.3(@babel/core@7.23.6)
+  '@babel/preset-typescript':
+    specifier: ^7.23.3
+    version: 7.23.3(@babel/core@7.23.6)
   '@rollup-extras/plugin-clean':
     specifier: ^1.3.9
     version: 1.3.9(rollup@4.9.1)
