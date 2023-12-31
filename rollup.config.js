@@ -40,7 +40,9 @@ export default [
         babelHelpers: 'bundled',
         exclude: 'node_modules/**',
       }),
-      typescript(),
+      typescript({
+        tsconfig: './tsconfig.build.json',
+      }),
       terser(),
       postcss({
         plugins: [autoprefixer],
