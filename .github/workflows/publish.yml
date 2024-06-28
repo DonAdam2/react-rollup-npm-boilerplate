@@ -52,7 +52,7 @@ jobs:
       - name: Install Packages
         run: |
           npm install -g pnpm
-          pnpm install --frozen-lockfile
+          pnpm install
 
       - name: Build npm package
         run: pnpm build-lib
