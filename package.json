@@ -24,6 +24,7 @@
     "storybook": "storybook dev -p 6006",
     "commit": "git add . && cz",
     "semantic-release": "standard-version",
+    "release": "pnpm run commit && pnpm run semantic-release",
     "build-storybook": "storybook build",
     "build-lib": "rm -rf lib && mkdir lib && rollup -c --bundleConfigAsCjs && cp -r ./dist ./lib && cp package.json LICENSE README.md ./lib",
     "test": "jest -c jest/jest.config.js --verbose",

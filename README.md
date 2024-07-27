@@ -57,10 +57,19 @@ This boilerplate allows you to create npm package fast and easy with the followi
 - Open your repository on GitHub => settings => Secrets and variables => Actions => New repository secret:
   - Name: **NPM_AUTH_TOKEN**
   - Secret: paste your npm access token.
+- Commit your changes:
+  ```shell
+  pnpm commit
+  ```
 - Create a new release:
   ```shell
   pnpm semantic-release
   ```
+  NOTE:
+  - If you want to commit and run semantic release at the same time use the following script:
+    ```shell
+    pnpm release
+    ```
 - push your changes to GitHub to run publish workflow.
 
 ### Publishing a package manually:
@@ -161,6 +170,10 @@ In the project directory, you can run:
 - Creates or updates CHANGELOG file.
 - Creates a new release tag.
 - Bump package version in `package.json`.
+
+### `pnpm release`
+
+- Runs 2 scripts `pnpm commit` and `pnpm semantic-release`.
 
 ### `pnpm build-storybook`
 
