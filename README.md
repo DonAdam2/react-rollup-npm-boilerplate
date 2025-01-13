@@ -51,12 +51,13 @@ This boilerplate allows you to create npm package fast and easy with the followi
     - Select **Automation** if you will use GitHub actions, select **Publish** if you will publish you package manually.
     - Click on **Generate Token**.
     - Copy the generated token and save it somewhere.
-
-### Publishing a package with GitHub actions:
-
 - Open your repository on GitHub => settings => Secrets and variables => Actions => New repository secret:
   - Name: **NPM_AUTH_TOKEN**
   - Secret: paste your npm access token.
+
+### Publishing a package with GitHub actions:
+
+- Create new branch out of `main`.
 - Commit your changes:
   ```shell
   pnpm commit
@@ -70,7 +71,14 @@ This boilerplate allows you to create npm package fast and easy with the followi
     ```shell
     pnpm release
     ```
-- push your changes to GitHub to run publish workflow.
+- push your changes to GitHub.
+- Open a PR from your branch into `main` and merge it.
+- Create a new release on `github`:
+  - Click on `Choose a tag` and add a new release candidate tag (***e.g. v1.0.0***)
+  - Click on `Generate release notes`
+  - Insert release title (***same as tag***)
+  - Click on `Publish release`
+  - Open `Actions` tab to see the progress of your workflow.
 
 ### Publishing a package manually:
 
