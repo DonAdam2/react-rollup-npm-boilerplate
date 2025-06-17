@@ -14,7 +14,10 @@ describe('<Button />', () => {
       </Button>
     );
     const styledButton = screen.getByText('Styled Button');
-    expect(styledButton).toHaveStyle({ color: 'red', backgroundColor: 'blue' });
+    expect(styledButton).toHaveStyle({
+      color: 'rgb(255, 0, 0)',
+      backgroundColor: 'rgb(0, 0, 255)',
+    });
   });
 
   it('handles the onClick event', () => {
