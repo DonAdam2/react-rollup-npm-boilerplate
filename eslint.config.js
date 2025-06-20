@@ -92,9 +92,11 @@ module.exports = [
 
       // Original custom overrides
       'prettier/prettier': 'error',
+      '@typescript-eslint/no-require-imports': 'off',
       '@typescript-eslint/no-var-requires': 'off',
       '@typescript-eslint/no-explicit-any': 'off',
       '@typescript-eslint/no-unused-vars': 'warn',
+      'react/prop-types': 'off',
     },
     settings: {
       react: {
