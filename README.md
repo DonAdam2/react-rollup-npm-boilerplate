@@ -46,11 +46,15 @@ This boilerplate allows you to create npm package fast and easy with the followi
 - Click on **Edit Profile** button.
 - Click on **Access Tokens**.
 - Click on **Generate New Token**:
-  - Click on **Classic Token**:
-    - Enter token name.
-    - Select **Automation** if you will use GitHub actions, select **Publish** if you will publish you package manually.
-    - Click on **Generate Token**.
-    - Copy the generated token and save it somewhere.
+  - Click on **Granular Access Token**:
+    - Enter **Token name**.
+    - Enter **Description** .
+    - Select the desired **Expiration**.
+    - In **Packages and scopes**:
+      - Select **Read and write** permission
+      - Select the required package
+    - Click on **Generate Token** button.
+- Copy your generated token and save it somewhere safe (you won't be able to see it again).
 - Open your repository on GitHub => settings => Secrets and variables => Actions => New repository secret:
   - Name: **NPM_AUTH_TOKEN**
   - Secret: paste your npm access token.
