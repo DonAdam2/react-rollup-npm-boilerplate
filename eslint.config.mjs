@@ -1,26 +1,26 @@
-const js = require('@eslint/js');
-const typescript = require('@typescript-eslint/eslint-plugin');
-const typescriptParser = require('@typescript-eslint/parser');
-const react = require('eslint-plugin-react');
-const reactHooks = require('eslint-plugin-react-hooks');
-const jest = require('eslint-plugin-jest');
-const testingLibrary = require('eslint-plugin-testing-library');
-const jestDom = require('eslint-plugin-jest-dom');
-const prettier = require('eslint-plugin-prettier');
-const storybook = require('eslint-plugin-storybook');
-const prettierConfig = require('eslint-config-prettier');
-const globals = require('globals');
+import js from '@eslint/js';
+import typescript from '@typescript-eslint/eslint-plugin';
+import typescriptParser from '@typescript-eslint/parser';
+import react from 'eslint-plugin-react';
+import reactHooks from 'eslint-plugin-react-hooks';
+import jest from 'eslint-plugin-jest';
+import testingLibrary from 'eslint-plugin-testing-library';
+import jestDom from 'eslint-plugin-jest-dom';
+import prettier from 'eslint-plugin-prettier';
+import storybook from 'eslint-plugin-storybook';
+import prettierConfig from 'eslint-config-prettier';
+import globals from 'globals';
 
-module.exports = [
+export default [
   // ESLint recommended
   js.configs.recommended,
 
   // Prettier config (disables conflicting rules)
   prettierConfig,
 
-  // Configuration files (eslint.config.js, etc.) - allow require imports
+  // Configuration files (*.config.js, etc.) - allow require imports
   {
-    files: ['eslint.config.js', '*.config.js', '*.config.ts'],
+    files: ['*.config.js', '*.config.mjs', '*.config.ts'],
     languageOptions: {
       globals: {
         ...globals.node,
@@ -38,7 +38,7 @@ module.exports = [
   // Main configuration
   {
     files: ['**/*.{js,jsx,ts,tsx}'],
-    ignores: ['eslint.config.js', '*.config.js', '*.config.ts'],
+    ignores: ['*.config.js', '*.config.mjs', '*.config.ts'],
     languageOptions: {
       parser: typescriptParser,
       ecmaVersion: 6,
@@ -106,13 +106,5 @@ module.exports = [
   },
 
   // Storybook rules for story files only
-  {
-    files: ['**/*.stories.{js,jsx,ts,tsx}', '**/.storybook/**/*.{js,jsx,ts,tsx}'],
-    plugins: {
-      storybook: storybook,
-    },
-    rules: {
-      ...storybook.configs.recommended.rules,
-    },
-  },
+  ...storybook.configs['flat/recommended'],
 ];

@@ -23,11 +23,11 @@ export const Button: FC<PropsWithChildren<ButtonProps>> = ({
   style,
   ...rest
 }) => {
-  let _style: CSSProperties = style || {};
-
-  /** Override Defaults **/
-  if (backgroundColor) _style.backgroundColor = backgroundColor;
-  if (color) _style.color = color;
+  const _style: CSSProperties = {
+    ...style,
+    ...(backgroundColor && { backgroundColor }),
+    ...(color && { color }),
+  };
 
   return (
     <button className={styles.button} style={_style} {...rest}>
