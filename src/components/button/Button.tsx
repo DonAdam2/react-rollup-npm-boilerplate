@@ -8,8 +8,10 @@ import {
 //styles
 import styles from './Styles.module.scss';
 
-export interface ButtonProps
-  extends DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
+export interface ButtonProps extends DetailedHTMLProps<
+  ButtonHTMLAttributes<HTMLButtonElement>,
+  HTMLButtonElement
+> {
   backgroundColor?: string;
   color?: string;
 }
