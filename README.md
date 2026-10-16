@@ -40,24 +40,30 @@ This boilerplate allows you to create npm package fast and easy with the followi
 
 ## Publishing your package:
 
-### Create NPM token:
+The GitHub actions workflow (`.github/workflows/publish.yml`) publishes with npm [trusted publishing](https://docs.npmjs.com/trusted-publishers) (OIDC) and [staged publishing](https://docs.npmjs.com/staged-publishing):
 
-- Log into your [npm](https://www.npmjs.com/login) account.
-- Click on **Edit Profile** button.
-- Click on **Access Tokens**.
-- Click on **Generate New Token**:
-  - Click on **Granular Access Token**:
-    - Enter **Token name**.
-    - Enter **Description** .
-    - Select the desired **Expiration**.
-    - In **Packages and scopes**:
-      - Select **Read and write** permission
-      - Select the required package
-    - Click on **Generate Token** button.
-- Copy your generated token and save it somewhere safe (you won't be able to see it again).
-- Open your repository on GitHub => settings => Secrets and variables => Actions => New repository secret:
-  - Name: **NPM_AUTH_TOKEN**
-  - Secret: paste your npm access token.
+- No npm token is stored in GitHub. npm verifies the workflow identity directly with GitHub, so there is nothing to expire or leak, and every version gets a provenance statement automatically.
+- The workflow runs `npm stage publish`, so a new version only goes live after you approve it with 2FA on npmjs.com.
+
+NOTE:
+- npm is [restricting granular access tokens that bypass 2FA](https://github.blog/changelog/2026-07-08-npm-install-time-security-and-gat-bypass2fa-deprecation/) (account changes from August 2026, direct publishing from January 2027), so the old `NPM_AUTH_TOKEN` secret approach will stop working.
+
+### Set up trusted publishing:
+
+- A trusted publisher can only be added to a package that already exists on npm, so publish the first version manually (see [Publishing a package manually](#publishing-a-package-manually)).
+- Log into your [npm](https://www.npmjs.com/login) account and open your package => **Settings** => **Trusted Publisher**:
+  - Publisher: **GitHub Actions**.
+  - Label (optional): e.g. **GitHub Actions – publish.yml (staged)**.
+  - Organization or user: your GitHub username or organization (***case-sensitive***).
+  - Repository: your repository name (***case-sensitive***).
+  - Workflow filename: **publish.yml** (filename only).
+  - Environment name: leave it **empty** (only fill it if your publish job uses a GitHub environment with the exact same name, otherwise publishing fails).
+  - Allowed actions: leave **Allow npm publish** and **Allow npm dist-tag** unchecked, `npm stage publish` is always allowed.
+  - Click on **Set up connection** button.
+
+  NOTE:
+  - The provider and required fields can't be changed later, to change them delete the connection and create a new one.
+- Make sure `repository => url` in **package.json** points to your GitHub repository, npm uses it to verify the provenance statement.
 
 ### Publishing a package with GitHub actions:
 
@@ -82,7 +88,19 @@ This boilerplate allows you to create npm package fast and easy with the followi
   - Click on `Generate release notes`
   - Insert release title (***same as tag***)
   - Click on `Publish release`
-  - Open `Actions` tab to see the progress of your workflow.
+  - Open `Actions` tab to see the progress of your workflow, the publish job stages the new version (***e.g. `+ your-package@1.0.0 (staged with id <stage-id>)`***).
+- Approve the staged version:
+  - Open your package on npmjs.com => **Versions** tab, the new version shows as **Staged**.
+  - Click on **Review it in Staged Packages**, check the version and stage id, then click on **Approve** and enter your 2FA code.
+  - Or approve it from the terminal (requires npm 11.15.0 or later):
+    ```shell
+    npx "npm@^11.15.0" login
+    npx "npm@^11.15.0" stage approve <stage-id>
+    ```
+  - The version changes from **Staged** to **Published** and becomes the `latest` tag (the npmjs.com package page may take a few minutes to update, `npm view <your-package> version` shows it right away).
+- After the first successful staged release, harden your package:
+  - Open your package => **Settings** => **Publishing access** => select **Require two-factor authentication and disallow bypass 2fa tokens** => click on **Update Package Settings**.
+  - If you used an `NPM_AUTH_TOKEN` secret before, delete it from your repository on GitHub => settings => Secrets and variables => Actions, and revoke the token on npmjs.com => **Access Tokens**.
 
 ### Publishing a package manually:
 
@@ -102,7 +120,11 @@ This boilerplate allows you to create npm package fast and easy with the followi
   ```shell
   cd lib
   ```
-- Publish your npm package:
+- Log into your npm account (if you aren't logged in already):
+  ```shell
+  npm login
+  ```
+- Publish your npm package (you'll be prompted for your 2FA code):
   ```shell
   npm publish --access public
   ```
